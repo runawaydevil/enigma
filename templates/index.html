@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máquina Enigma</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Máquina Enigma</h1>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5>Configuração dos Rotores</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="rotor1" class="form-label">Rotor 1</label>
+                            <select class="form-select" id="rotor1">
+                                <option value="0">I</option>
+                                <option value="1">II</option>
+                                <option value="2">III</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="rotor2" class="form-label">Rotor 2</label>
+                            <select class="form-select" id="rotor2">
+                                <option value="1">II</option>
+                                <option value="0">I</option>
+                                <option value="2">III</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="rotor3" class="form-label">Rotor 3</label>
+                            <select class="form-select" id="rotor3">
+                                <option value="2">III</option>
+                                <option value="0">I</option>
+                                <option value="1">II</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5>Posições Iniciais</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="pos1" class="form-label">Rotor 1</label>
+                                <input type="text" class="form-control" id="pos1" maxlength="1" pattern="[A-Z]">
+                            </div>
+                            <div class="col-4">
+                                <label for="pos2" class="form-label">Rotor 2</label>
+                                <input type="text" class="form-control" id="pos2" maxlength="1" pattern="[A-Z]">
+                            </div>
+                            <div class="col-4">
+                                <label for="pos3" class="form-label">Rotor 3</label>
+                                <input type="text" class="form-control" id="pos3" maxlength="1" pattern="[A-Z]">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5>Plugboard</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="plugboard-pairs" class="mb-3">
+                            <!-- Pares do plugboard serão adicionados aqui -->
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="plugboard-input" maxlength="2" placeholder="Digite um par de letras (ex: AB)">
+                            <button class="btn btn-primary" id="add-pair">Adicionar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Texto</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="input-text" class="form-label">Texto de Entrada</label>
+                            <textarea class="form-control" id="input-text" rows="4"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="output-text" class="form-label">Texto de Saída</label>
+                            <textarea class="form-control" id="output-text" rows="4" readonly></textarea>
+                        </div>
+                        <button class="btn btn-primary" id="process-btn">Processar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="fixed-bottom bg-dark text-white text-center py-3">
+        Desenvolvido por Pablo Murad - 2025
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="static/js/main.js"></script>
+</body>
+</html> 
