@@ -18,6 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
             return value ? value.charCodeAt(0) - 'A'.charCodeAt(0) : 0;
         });
 
+        const rotorTypes = rotorSelects.map(select => {
+            const val = select.value;
+            const names = ['I', 'II', 'III'];
+            return names[val] || val;
+        });
+
         try {
             const response = await fetch('/process', {
                 method: 'POST',
@@ -27,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify({
                     text,
                     rotorPositions,
+                    rotorTypes,
                     plugboardPairs: plugboardPairsList
                 })
             });
